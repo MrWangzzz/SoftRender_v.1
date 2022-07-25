@@ -1,0 +1,3 @@
+C:\c++pjt\SoftRender_v.1\x64\Debug\SoftRender_v.1.exe
+F:\C++Project\SoftRender_v.1\x64\Debug\SoftRender_v.1.exe
+F:\PORJ\SoftRender_v.1\x64\Debug\SoftRender_v.1.exe
