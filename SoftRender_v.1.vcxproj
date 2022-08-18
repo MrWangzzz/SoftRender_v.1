@@ -133,10 +133,16 @@
     <ClCompile Include="cpp\Renderer.cpp" />
     <ClCompile Include="cpp\Vertex.cpp" />
     <ClCompile Include="cpp\Window.cpp" />
+    <ClCompile Include="cpp\ObjFileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Head\Buffer.h" />
     <ClInclude Include="Head\Color.h" />
+    <ClInclude Include="Head\Matrix.h" />
+    <ClInclude Include="Head\Mesh.h" />
+    <ClInclude Include="Head\ObjFileReader.h" />
     <ClInclude Include="Head\Renderer.h" />
+    <ClInclude Include="Head\Transform.h" />
     <ClInclude Include="Head\Vector3.h" />
     <ClInclude Include="Head\Vertex.h" />
     <ClInclude Include="Head\Window.h" />

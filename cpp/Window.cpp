@@ -20,14 +20,14 @@ LRESULT WINAPI MsgProc(HWND hwnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 
 Window::Window(int w, int h, const char* name) :windowWidth(w), windowHeight(h)
 {
-	WNDCLASS wndC = { CS_BYTEALIGNCLIENT,(WNDPROC)MsgProc,0,0,0,NULL,NULL,NULL,NULL,TEXT("text") };
+	WNDCLASS wndC = { CS_BYTEALIGNCLIENT, (WNDPROC)MsgProc, 0, 0, 0, NULL, NULL, NULL, NULL, TEXT("Test") };
 	wndC.hInstance = GetModuleHandle(NULL);
 
 	if (!RegisterClass(&wndC))
 	{
 		return;
 	}
-	window = CreateWindow(TEXT("text"), TEXT("text"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX, 0, 0, 0, 0, NULL, NULL, wndC.hInstance, NULL);
+	window = CreateWindow(TEXT("Test"), TEXT("Test"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX, 0, 0, 0, 0, NULL, NULL, wndC.hInstance, NULL);
 	if (window == NULL)
 	{
 		return;

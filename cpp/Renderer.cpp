@@ -9,13 +9,88 @@ Renderer::Renderer(HDC hdc, int screenWidth, int screenHeight)
 	screenHDC = hdc;
 	deviceWidth = screenWidth;
 	deviceHeight = screenHeight;
+
 }
 
 
 
+void Renderer::DrawMesh(Mesh* mesh, DepthBuffer* zbuffer)
+{
+	if (mesh->indexBuffer.size() > 0)
+	{
+		DrawByIndex(mesh, zbuffer);
+	}
+	else
+	{
+		DrawByArray(mesh, zbuffer);
+	}
+}
 
 
+/// <summary>
+/// 根据索引信息绘制
+/// </summary>
+/// <param name="mesh"></param>
+void Renderer::DrawByIndex(Mesh* mesh, DepthBuffer* zbuffer)
+{
 
+	for (int i = 0; i < mesh->indexBuffer.size(); i = i + 4)
+	{
+		Vertex p1;
+		p1.pos = mesh->positionBuffer[mesh->indexBuffer[i].x - 1];
+		p1.uv = mesh->uvBuffer[mesh->indexBuffer[i].y - 1];
+		p1.normal = mesh->normalBuffer[mesh->indexBuffer[i].z - 1];
+
+		Vertex p2;
+		p2.pos = mesh->positionBuffer[mesh->indexBuffer[i + 1].x - 1];
+		p2.uv = mesh->uvBuffer[mesh->indexBuffer[i + 1].y - 1];
+		p2.normal = mesh->normalBuffer[mesh->indexBuffer[i + 1].z - 1];
+
+		Vertex p3;
+		p3.pos = mesh->positionBuffer[mesh->indexBuffer[i + 2].x - 1];
+		p3.uv = mesh->uvBuffer[mesh->indexBuffer[i + 2].y - 1];
+		p3.normal = mesh->normalBuffer[mesh->indexBuffer[i + 2].z - 1];
+
+		Vertex p4;
+		p4.pos = mesh->positionBuffer[mesh->indexBuffer[i + 3].x - 1];
+		p4.uv = mesh->uvBuffer[mesh->indexBuffer[i + 3].y - 1];
+		p4.normal = mesh->normalBuffer[mesh->indexBuffer[i + 3].z - 1];
+
+		DrawPrimitive(p1, p2, p3, zbuffer);
+		DrawPrimitive(p1, p3, p4, zbuffer);
+	}
+}
+/// <summary>
+/// 绘制所以顶点
+/// </summary>
+/// <param name="mesh"></param>
+void Renderer::DrawByArray(Mesh* mesh, DepthBuffer* zbuffer)
+{
+	for (int i = 0; i < mesh->vertexBuffer.size(); i = i + 3)
+	{
+		Vertex p1 = mesh->vertexBuffer[i];
+		Vertex p2 = mesh->vertexBuffer[i + 1];
+		Vertex p3 = mesh->vertexBuffer[i + 2];
+		DrawPrimitive(p1, p2, p3, zbuffer);
+	}
+}
+
+void Renderer::DrawPrimitive(Vertex v1, Vertex v2, Vertex v3, DepthBuffer* zbuffer)
+{
+
+	PrepareRasterization(v1, zbuffer);
+	PrepareRasterization(v2, zbuffer);
+	PrepareRasterization(v3, zbuffer);
+
+	DrawTriangle(v1, v2, v3);
+}
+inline void Renderer::PrepareRasterization(Vertex& vertex, Buffer* buffer)
+{
+	float reciprocalW = 1.0f / vertex.pos.w;
+	//最后加0.5是为了后面取证做四舍五入
+	vertex.pos.x = vertex.pos.x * reciprocalW * buffer->width * 0.5f;
+	vertex.pos.y = vertex.pos.y * reciprocalW * buffer->height * 0.5f;
+}
 
 void Renderer::DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
 {
@@ -35,10 +110,6 @@ void Renderer::DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
 	}
 	else
 	{
-
-		///(v2.x-v1.x)/(v2.y-v1.y)
-		///()
-
 		float x = (v2.pos.x - v1.pos.x) * (v3.pos.y - v1.pos.y) / (v2.pos.y - v1.pos.y) + v1.pos.x;
 		float y = v3.pos.y;
 		Vertex xv2(Vector3<float>(x, y, 0), Vector2(0, 0));
@@ -47,14 +118,13 @@ void Renderer::DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
 		DrawBottomFaltTrangle(v1, xv2, v3);
 	}
 
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
 /// <summary>
 /// 绘制上平三角形
 /// </summary>
@@ -129,7 +199,7 @@ void Renderer::DrawBottomFaltTrangle(Vertex v1, Vertex v2, Vertex v3)
 /// <param name="y1"></param>
 void Renderer::DrawLine(Vector3<float> p1, Vector3<float> p2)
 {
-	int dx, dy, k, epsl;
+	float dx, dy, k, epsl;
 
 	float x, y, xIncre, yIncre;
 
@@ -138,15 +208,15 @@ void Renderer::DrawLine(Vector3<float> p1, Vector3<float> p2)
 	dy = p2.y - p1.y;
 	x = p1.x;
 	y = p1.y;
-	if (dx==0)
+	if (dx == 0)
 	{
 		DrawPixel(int(p1.x), (int)(p1.y));
 		return;
 	}
 	epsl = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
 
-	xIncre = (float)(dx / epsl);
-	yIncre = (float)(dy / epsl);
+	xIncre = (dx / epsl);
+	yIncre = (dy / epsl);
 
 	for (k = 0; k < epsl; k++)
 	{
@@ -160,5 +230,5 @@ void Renderer::DrawLine(Vector3<float> p1, Vector3<float> p2)
 
 void Renderer::DrawPixel(int x, int y)
 {
-	SetPixel(screenHDC, x, y, RGB(0, 0, 0));
+	SetPixel(screenHDC, x, y, RGB(255, 255, 0));
 }
