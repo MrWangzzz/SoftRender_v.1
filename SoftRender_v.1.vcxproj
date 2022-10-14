@@ -130,16 +130,22 @@
   <ItemGroup>
     <ClCompile Include="cpp\Color.cpp" />
     <ClCompile Include="cpp\Main.cpp" />
+    <ClCompile Include="cpp\Matrix.cpp" />
     <ClCompile Include="cpp\Renderer.cpp" />
+    <ClCompile Include="cpp\Transform.cpp" />
     <ClCompile Include="cpp\Vertex.cpp" />
     <ClCompile Include="cpp\Window.cpp" />
     <ClCompile Include="cpp\ObjFileReader.cpp" />
+    <ClCompile Include="cpp\Mesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Head\Buffer.h" />
+    <ClInclude Include="Head\Camera.h" />
     <ClInclude Include="Head\Color.h" />
+    <ClInclude Include="Head\Input.h" />
     <ClInclude Include="Head\Matrix.h" />
     <ClInclude Include="Head\Mesh.h" />
+    <ClInclude Include="Head\MyMath.h" />
     <ClInclude Include="Head\ObjFileReader.h" />
     <ClInclude Include="Head\Renderer.h" />
     <ClInclude Include="Head\Transform.h" />

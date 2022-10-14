@@ -1,5 +1,6 @@
 #pragma once
-
+#include <windows.h>
+#include <iostream>
 template<class T>
 class  Vector3
 {

@@ -11,6 +11,9 @@ public:
 	std::vector<Vector3<float>> normalBuffer;
 	std::vector<Vector2> uvBuffer;
 	std::vector<Vector3<int>> indexBuffer;
+	Mesh();
+	Transform GetTransform() { return transform; }
+
 
 private:
 

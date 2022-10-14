@@ -4,12 +4,12 @@ using namespace std;
 
 
 
-Renderer::Renderer(HDC hdc, int screenWidth, int screenHeight)
+Renderer::Renderer(HDC hdc, int screenWidth, int screenHeight,Camera *cam)
 {
 	screenHDC = hdc;
 	deviceWidth = screenWidth;
 	deviceHeight = screenHeight;
-
+	camera = cam;
 }
 
 

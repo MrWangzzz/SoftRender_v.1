@@ -4,6 +4,7 @@
 #include "Vertex.h"
 #include"Mesh.h"
 #include "Buffer.h"
+#include"Camera.h"
 class  Renderer
 {
 
@@ -11,11 +12,9 @@ private:
 	HDC screenHDC;
 	int deviceWidth;
 	int deviceHeight;
-
-
 public:
-
-	Renderer(HDC hdc, int screenWidth, int screenHeight);
+	Camera *camera;
+	Renderer(HDC hdc, int screenWidth, int screenHeight, Camera *cam);
 	void DrawMesh(Mesh *mesh, DepthBuffer* zbuffer);
 	void DrawTriangle(Vertex v1, Vertex v2, Vertex v3);
 	void DrawLine(Vector3<float> p1, Vector3<float> p2);
