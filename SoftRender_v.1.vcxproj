@@ -132,6 +132,7 @@
     <ClCompile Include="cpp\Main.cpp" />
     <ClCompile Include="cpp\Matrix.cpp" />
     <ClCompile Include="cpp\Renderer.cpp" />
+    <ClCompile Include="cpp\Shader.cpp" />
     <ClCompile Include="cpp\Transform.cpp" />
     <ClCompile Include="cpp\Vertex.cpp" />
     <ClCompile Include="cpp\Window.cpp" />
@@ -143,12 +144,15 @@
     <ClInclude Include="Head\Camera.h" />
     <ClInclude Include="Head\Color.h" />
     <ClInclude Include="Head\Input.h" />
+    <ClInclude Include="Head\Light.h" />
     <ClInclude Include="Head\Matrix.h" />
     <ClInclude Include="Head\Mesh.h" />
     <ClInclude Include="Head\MyMath.h" />
     <ClInclude Include="Head\ObjFileReader.h" />
     <ClInclude Include="Head\Renderer.h" />
+    <ClInclude Include="Head\Shader.h" />
     <ClInclude Include="Head\Transform.h" />
+    <ClInclude Include="Head\Uniform.h" />
     <ClInclude Include="Head\Vector3.h" />
     <ClInclude Include="Head\Vertex.h" />
     <ClInclude Include="Head\Window.h" />

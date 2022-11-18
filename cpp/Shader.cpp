@@ -1,6 +1,9 @@
 #include"Shader.h"
 void PhongShader::VertexShader(Vertex& v0, Vertex& v1, Vertex& v2)
 {
+	v2f.v0 = v0;
+	v2f.v1 = v1;
+	v2f.v2 = v2;
 	Vertex* v = &v0;
 	for (int i = 0; i < 3; i++)
 	{
@@ -8,6 +11,7 @@ void PhongShader::VertexShader(Vertex& v0, Vertex& v1, Vertex& v2)
 		{
 		case 0:
 			v = &v0;
+			
 			break;
 		case 1:
 			v = &v1;
@@ -18,7 +22,7 @@ void PhongShader::VertexShader(Vertex& v0, Vertex& v1, Vertex& v2)
 		default:
 			break;
 		}
-		v = v * v2f.m;
+		//v = v * v2f.m;
 	}
 
 

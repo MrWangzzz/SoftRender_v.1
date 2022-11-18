@@ -23,11 +23,6 @@ int main()
 {
 	Window* w= new Window(WindowWidth, WindowHeight, "Test");
 	rd = new Renderer(w->screenHDC, WindowWidth, WindowHeight, camera);
-
-
-
-
-
 	ReadObjFile("cube.obj", cube);
 	Update(w);
 }

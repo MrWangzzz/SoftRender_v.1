@@ -3,60 +3,8 @@ F:\PORJ\SoftRender_v.1\Head\Buffer.h(41,27): warning C4244: “参数”: 从“
 F:\PORJ\SoftRender_v.1\Head\Buffer.h(41,9): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
 F:\PORJ\SoftRender_v.1\Head\Buffer.h(42,26): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
 F:\PORJ\SoftRender_v.1\Head\Buffer.h(42,9): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-  Renderer.cpp
-F:\PORJ\SoftRender_v.1\Head\Buffer.h(41,27): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
-F:\PORJ\SoftRender_v.1\Head\Buffer.h(41,9): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\Head\Buffer.h(42,26): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
-F:\PORJ\SoftRender_v.1\Head\Buffer.h(42,9): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(98,9): warning C4244: “初始化”: 从“T”转换到“int”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(99,9): warning C4244: “初始化”: 从“T”转换到“int”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(100,9): warning C4244: “初始化”: 从“T”转换到“int”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(148,10): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(150,21): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(151,10): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(152,21): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(177,13): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(179,10): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(180,25): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(180,21): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(181,10): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(182,25): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
-F:\PORJ\SoftRender_v.1\cpp\Renderer.cpp(182,21): warning C4244: “参数”: 从“int”转换到“T”，可能丢失数据
-          with
-          [
-              T=float
-          ]
+  Matrix.cpp
+  Shader.cpp
+  Mesh.cpp
   正在生成代码...
   SoftRender_v.1.vcxproj -> F:\PORJ\SoftRender_v.1\x64\Debug\SoftRender_v.1.exe
